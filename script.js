@@ -13,13 +13,14 @@ const displayScore = function (score) {
 const diplayNumber = function (number) {
   document.querySelector(".number").textContent = number;
 };
+
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
-  console.log(guess, typeof guess);
 
   // when is no input
-  if (!guess) {
-    displayMessage("No number!");
+  if (!guess || guess >= 21) {
+    displayMessage("Your guess should be between 1 to 20 !! ");
+    document.querySelector("body").style.backgroundColor = "#FF0000";
 
     // when player wins
   } else if (guess === secretNumber) {
